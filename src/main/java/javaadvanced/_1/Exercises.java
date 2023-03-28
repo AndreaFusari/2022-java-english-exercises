@@ -24,7 +24,7 @@ public class Exercises {
 
         // Add some numbers using the add method
         // Your code
-
+        
         if (ourSet.containsAll(Set.of(1, 1, 5, 2, 1))) {
             System.out.println("1a. Set contains all numbers");
         } else {
