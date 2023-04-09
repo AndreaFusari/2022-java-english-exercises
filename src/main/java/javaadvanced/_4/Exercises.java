@@ -1,5 +1,7 @@
 package javaadvanced._4;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,9 +33,9 @@ public class Exercises {
                 """;
 
         try {
-            Files.createFile(MY_PATH);
-
             // Your code here
+            Files.writeString(MY_PATH, myString);
+
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -50,6 +52,9 @@ public class Exercises {
         System.out.println("\nExercise 2: ");
         try {
             // Your code here
+            String fileDaLeggere = Files.readString(MY_PATH);
+            System.out.println(fileDaLeggere);
+
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -59,16 +64,22 @@ public class Exercises {
 
     }
 
-     /**
+    /**
      * 3:
      * Write a method that reads a file and print the number of lines in the file
      */
+
     private static void exercise3() {
         System.out.println("\nExercise 3: ");
         // Write code here to read the file and return the number of lines "\n", string.split
-
         try {
             // Your code here
+            String myString = Files.readString(MY_PATH);
+            int numLines = myString.split("\n").length; //.split restituisce un array di stringhe, ogni elemento è delimitato dal "\n",
+            // .lenght ci dice la lunghezza dell'array e quindi in questo caso il numero di linee presenti nel nostro file
+            System.out.println("Number of lines in file: " + numLines);
+
+
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -79,14 +90,26 @@ public class Exercises {
     /**
      * 4:
      * Write a method that reads a file and returns the number of words in the file
-     *
+     * <p>
      * Then deletes the previous file with Files.delete() use inside the try block
-     *
      */
     private static void exercise4() {
         System.out.println("\nExercise 4: ");
         try {
             // Your code here
+            // FileWriter writer = new FileWriter("prova.txt");
+            //writer.write("ciaosddjdof \n jdkf jdjddj jddj \n fjjjgjgdj jdj oroe cjskak");
+            //writer.close();
+            //File file = new File("prova.txt");
+            //Path mypath = Path.of("prova.txt");
+            var mypath = Path.of("prova.txt");
+            Files.writeString(mypath, "ciaosddjdof \n jdkf jdjddj jddj \n fjjjgjgdj jdj oroe cjskak");
+            String myString = Files.readString(mypath);
+            int numbersOfWords = myString.split(" ").length;
+            System.out.println("Nel file prova.txt ci sono " + numbersOfWords + " parole.");
+            Files.delete(mypath);
+
+
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -104,7 +127,9 @@ public class Exercises {
 
         try {
             // Your code
+           // Files.createDirectory(myDirectoryPath);
             Files.writeString(PATH_IN_A_FOLDER, "Why am I in a folder?");
+            Files.delete(PATH_IN_A_FOLDER);
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
