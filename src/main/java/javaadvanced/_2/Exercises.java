@@ -49,10 +49,10 @@ public class Exercises {
         //     to do so
 
         // Your code
-        double maxItem = Integer.MIN_VALUE;
+        double maxItemCost = Integer.MIN_VALUE;
         for (Map.Entry<String, Double> entry : menuCostsInEuro.entrySet()) {
-            if (entry.getValue() > maxItem) {
-                maxItem = entry.getValue();
+            if (entry.getValue() > maxItemCost) {
+                maxItemCost = entry.getValue();
                 mostExpensiveMenuItemName = entry.getKey();
         }
         }

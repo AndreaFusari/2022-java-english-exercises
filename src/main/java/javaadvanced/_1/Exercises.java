@@ -154,4 +154,5 @@ public class Exercises {
             System.out.println("4a. Correct min value");
         }
     }
+
 }

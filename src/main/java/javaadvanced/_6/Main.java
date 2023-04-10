@@ -8,4 +8,5 @@ public class Main {
 
         double costOfMeal = ingredientOfChoice.getPrice();
     }
+
 }
