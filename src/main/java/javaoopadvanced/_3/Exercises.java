@@ -1,5 +1,7 @@
 package javaoopadvanced._3;
 
+import java.util.Objects;
+
 public class Exercises {
 
     public static void main(String[] args) {
@@ -19,6 +21,8 @@ public class Exercises {
     private static void exercise1() {
         System.out.println("\nExercise 1: ");
         // Your code here
+        Person person = new Person("Mario Rossi",20,"Roma");
+        System.out.println(person);
     }
 
     /**
@@ -32,8 +36,14 @@ public class Exercises {
      * Create 2 people and print out their hashcodes
      */
     private static void exercise2() {
-        System.out.println("\nExercise 1: ");
+        System.out.println("\nExercise 2: ");
         // Your code here
+        Person person = new Person("Paolo Verdi", 35,"Milano 20138");
+        Person person1 = new Person("Mario Rossi",20,"Roma 12045");
+        System.out.println(person.hashCode());
+        System.out.println(person1.hashCode());
+        System.out.println(Objects.hash(person));
+        System.out.println(Objects.hash(person1));
     }
 
     /**

@@ -1,6 +1,8 @@
 package javainproduction._2;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Exercises {
@@ -12,7 +14,7 @@ public class Exercises {
         exercise4();
     }
 
-    private List<Integer> ourNumbers = IntStream.range(1, 10).boxed().toList();
+    private static List<Integer> ourNumbers = IntStream.range(1, 10).boxed().toList();
 
     /**
      * 1:
@@ -27,6 +29,8 @@ public class Exercises {
     private static void exercise1() {
         System.out.println("\nExercise 1: ");
         // Your code here
+        ourNumbers.stream().filter(integer -> integer % 2 == 0).forEach(System.out::println);
+
     }
 
     /**
@@ -42,6 +46,10 @@ public class Exercises {
     private static void exercise2() {
         System.out.println("\nExercise 2: ");
         // Your code here
+        Set<Integer> oddSet = ourNumbers.stream().filter(integer -> integer % 2 != 0).collect(Collectors.toSet());
+
+        System.out.println(oddSet);
+
     }
 
     /**
@@ -60,6 +68,8 @@ public class Exercises {
         System.out.println("\nExercise 3: ");
         List<String> alice = List.of("Alice", "Bob", "Charlie");
         // Your code here
+        Set<String> aliceToUpperCase = alice.stream().map(String::toUpperCase).collect(Collectors.toSet());
+        System.out.println(aliceToUpperCase);
     }
 
     /**
@@ -77,5 +87,8 @@ public class Exercises {
     private static void exercise4() {
         System.out.println("\nExercise 4");
         //Your code here
+        Set<Integer> mySet = (ourNumbers.stream().filter(integer -> integer % 2 == 0).map(integer -> integer * 2).collect(Collectors.toSet()));
+        System.out.println(mySet);
+
     }
 }

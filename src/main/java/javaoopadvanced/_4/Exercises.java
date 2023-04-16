@@ -7,7 +7,9 @@ public class Exercises {
        exercise1();
        exercise2();
        exercise3();
+
     }
+
 
     /**
      * 1:
@@ -25,9 +27,9 @@ public class Exercises {
     }
 
     private static int calculateFactorial(int number) {
-        //Fix this code
+        //Fix this code  modificato i+=2 -> i--
         int result = 1;
-        for (int i = number; i >= 1; i -= 2) {
+        for (int i = number; i >= 1; i --) {
             result = result * i;
         }
         return result;
@@ -49,11 +51,11 @@ public class Exercises {
     }
 
     private static String reverseString(String input) {
-        //Fix this code
+        //Fix this code         modificato i>=1 -> i>=0   e reversed +=... -> reversed =...
 
         String reversed = "";
-        for (int i = input.length() - 1; i >= 1; i--) {
-            reversed += reversed + input.charAt(i);
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
         }
         return reversed;
     }
@@ -78,7 +80,7 @@ public class Exercises {
     }
 
     private static boolean isPositive(int num) {
-        //Fix this code
-        return num >= 0;
+        //Fix this code      return num >= 0 -> num > 0
+        return num > 0;
     }
 }
